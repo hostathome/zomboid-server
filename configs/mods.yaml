@@ -1,0 +1,9 @@
+# HostAtHome - Project Zomboid Mods Configuration
+
+# Steam Workshop mods
+workshop: []
+  # Example:
+  # - id: "2169435993"
+  #   name: "Brita's Weapon Pack"
+  # - id: "2392709985"
+  #   name: "Arsenal(26) GunFighter Mod"
