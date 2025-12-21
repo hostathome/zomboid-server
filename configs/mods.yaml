@@ -1,0 +1,11 @@
+# Project Zomboid Mods Configuration
+# Edit this file and restart to apply mods
+
+# Steam Workshop mods
+workshop:
+  # - id: "2392709985"
+  #   name: "Brita"
+  # - id: "2313387159"
+  #   name: "Arsenal(26)GunFighter"
+  # - id: "2169435993"
+  #   name: "RavenCreek"
