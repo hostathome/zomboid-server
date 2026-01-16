@@ -34,16 +34,13 @@ MODS_FILE=/data/mods/mods.yaml
 WORKSHOP_IDS=$(yq '.workshop[].id // "" | select(. != "")' $MODS_FILE 2>/dev/null | tr '\n' ';' | sed 's/;$//')
 MOD_NAMES=$(yq '.workshop[].name // "" | select(. != "")' $MODS_FILE 2>/dev/null | tr '\n' ';' | sed 's/;$//')
 
-# Generate server.ini from config.yaml
+# Generate server.ini from config.yaml using config_mapper
+echo "HostAtHome: Generating servertest.ini from config.yaml..."
 CONFIG=/data/configs/config.yaml
-cat > /home/zomboid/Zomboid/Server/servertest.ini << EOF
-PublicName=$(yq '.server.name' $CONFIG)
-PublicDescription=$(yq '.server.description' $CONFIG)
-Password=$(yq '.server.password' $CONFIG)
-MaxPlayers=$(yq '.server.max-players' $CONFIG)
-PauseEmpty=$(yq '.gameplay.pause-empty' $CONFIG)
-PVP=$(yq '.gameplay.pvp' $CONFIG)
-Map=$(yq '.world.map' $CONFIG)
+python3 /config_mapper.py $CONFIG > /home/zomboid/Zomboid/Server/servertest.ini
+
+# Append workshop items and default port
+cat >> /home/zomboid/Zomboid/Server/servertest.ini << EOF
 WorkshopItems=${WORKSHOP_IDS}
 Mods=${MOD_NAMES}
 DefaultPort=16261

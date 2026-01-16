@@ -1,15 +1,33 @@
 # HostAtHome - Project Zomboid Server Configuration
 
+__format__: ini
+
 server:
-  name: "HostAtHome Zomboid"
-  description: "A Project Zomboid server"
-  password: ""
-  max-players: 16
-  admin-password: "admin"
+  name:
+    value: "HostAtHome Zomboid"
+    key: PublicName
+  description:
+    value: "A Project Zomboid server"
+    key: PublicDescription
+  password:
+    value: ""
+    key: Password
+  max-players:
+    value: 16
+    key: MaxPlayers
+  admin-password:
+    value: "admin"
+    key: AdminPassword
 
 gameplay:
-  pause-empty: true
-  pvp: true
+  pause-empty:
+    value: true
+    key: PauseEmpty
+  pvp:
+    value: true
+    key: PVP
 
 world:
-  map: "Muldraugh, KY"
+  map:
+    value: "Muldraugh, KY"
+    key: Map

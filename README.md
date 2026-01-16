@@ -13,8 +13,8 @@ hostathome run zomboid
 
 | Port | Protocol | Purpose |
 |------|----------|---------|
-| 1024 | UDP | Player connections |
-| 1025 | UDP | Steam query |
+| 30065 | UDP | Player connections |
+| 30066 | UDP | Steam query |
 
 ## Configuration
 
@@ -67,5 +67,5 @@ zomboid-server/
 
 ```bash
 docker build -t zomboid-server .
-docker run -d -p 1024:16261/udp -v $(pwd):/data zomboid-server
+docker run -d -p 30065:16261/udp -v $(pwd):/data zomboid-server
 ```
